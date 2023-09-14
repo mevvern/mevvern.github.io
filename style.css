@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'rodondo';
+    src: url('resources/fonts/rodondo.woff2') format('woff2'),
+         url('resources/fonts/rodondo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: rodondo;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    padding-top: 0px;
+    background-color: white;
+}
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.editorScreen {
+    padding-left: 20px;
+}
+
+canvas {
+    outline: rgb(170, 0, 170) 4px solid;
+    border-radius: 2px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 4px;
+    flex-wrap: wrap;
+    width: 480px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+input[type="number"] {
+    width: 40px;
+}
+
+.buttons > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 5px solid #666666;
+    border-radius: 9px;
+    width: 65px;
+    height: 55px;
+    outline: none;
+    background-color: rgb(187, 187, 187);
+    text-align: center;
+}
+
+.buttons > button:hover {
+    border: 5px solid #d6ae28
+}
+
+button > img {
+    position: relative;
+}
+
+button[selected="true"] {
+    border: 5px solid #b401cc
+}
+
+button[selected="true"]:hover {
+    border: 5px solid #8201cc
+}
+
+button[selected="false"] {
+    border: 5px solid #666666
+}
+
+.tools {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 5px;
+    gap: 20px;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.levelSettings {
+    height: 40vh;
+    align-items: top;
+}
+
+.editorSettings {
+    height: 40vh;
+    align-items: top;
+}
+
+.toolHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header {
+    font-size: 1.5rem;
+    color: black;
+    margin-top: 3px;
+    margin-bottom: 6px;
+}
+
+.subHeader {
+    font-size: 1rem;
+    color: gray;
+    margin-top: 3px;
+    margin-bottom: 6px;
+}
+
+.toolSet {
+    display: flex;
+    flex-direction: column;
+}
