@@ -1,5 +1,26 @@
 <!DOCTYPE HTML>
     <head>
+        <script defer>
+            "use strict"
+            
+            const zone = document.querySelector("#buttonzone");
+            const oldbuttons = document.querySelectorAll("#buttonzone>a");
+            const newButtons = [];
+
+            let length = zone.length;
+
+            for(let i = length; i > 0; i--) {
+                const randIdx = Math.floor(Math.random() * i);
+                newButtons.push(zone[randIdx]);
+            }
+
+            //clear the div
+            zone.innerHTML = "";
+            //readd the shuffled buttons
+            for(let button of newButtons) {
+                document.querySelector("#buttonzone").appendChild(button);
+            }
+        </script>
     </head>
     <body>
         <h1 style="color: red">testPage</h1>
@@ -7,7 +28,7 @@
         <h3 style="color: rgb(0, 0, 0)">i have no gender so refer to me with they/them. i have a penchant for starting projects and not finishing them</h3>
         <h3 style="color: rgb(0, 0, 0)">i've been dabbling in 3dart and game development recently. stay tuned for whatever comes of that</h3>
         <h3 style="color: rgb(0, 0, 0)">you can message me on discord if you'd like. i'm "mevvern" over there. feel free to friend request me</h3>
-        <h3 style="color: rgb(0, 0, 0)">i don't bite... unless you want me to. i am a predator after all</h3>
+        <h3 style="color: rgb(0, 0, 0)">i don't bite... unless you want me to</h3>
         <hr>
         <a href="https://bsky.app/profile/mevvern.wyvernscales.com">my bluesky</a>
         <br>
@@ -18,4 +39,9 @@
         <a href="https://wyvernscales.com/hl2sounds">try my source game sound viewer</a>
         <br>
         <a href="https://wyvernscales.com/RWEditor">RWEditor (likely will never work on this again)</a>
+        <hr>
+        <div id="buttonzone">
+            <a href="https://sexfm.live"><img src="https://sexfm.live/ilovesexfm.gif" style="width: 150px; height: 20px"></a>
+            <a href="https://highlysuspect.agency"><img src="https://highlysuspect.agency/img/button/hsa.gif"></a>
+        </div>
     </body>
