@@ -1,0 +1,23 @@
+@keyframes hueshift {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+
+	100% {
+		filter: hue-rotate(360deg);
+	}
+}
+
+.bigtitle {
+	animation-name: hueshift;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	color: hsl(0, 100%, 50%);
+}
+
+.maindiv {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
