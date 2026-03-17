@@ -4,11 +4,11 @@
     <script defer>
         "use strict"
 
-        const zone = document.querySelector("#buttonzone");
+        const zone = document.querySelectorAll("#buttonzone");
         const oldbuttons = document.querySelectorAll("#buttonzone>a");
         const newButtons = [];
 
-        let length = zone.length;
+        let length = oldbuttons.length;
 
         for (let i = length; i > 0; i--) {
             const randIdx = Math.floor(Math.random() * i);
@@ -19,7 +19,7 @@
         zone.innerHTML = "";
         //re-add the shuffled buttons
         for (let button of newButtons) {
-            document.querySelector("#buttonzone").appendChild(button);
+            zone.appendChild(button);
         }
     </script>
 </head>
@@ -52,8 +52,13 @@
         <br>
         <a href="https://wyvernscales.com/RWEditor">RWEditor</a>
         <hr>
+        <h3>my vid zone!!! hehe</h3>
+        <a href="/videozone.html" class="biglink">Click For Fun Vids . . .</a>
+        <hr>
         <div id="buttonzone">
             <a href="https://sexfm.live"><img src="https://sexfm.live/ilovesexfm.gif" style="width: 150px; height: 20px"></a>
         </div>
+        <hr>
+        <h2 class="pee">have you ever thought about peeing before? Try it</h2>
     </div>
 </body>

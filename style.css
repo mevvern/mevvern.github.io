@@ -8,12 +8,36 @@
 	}
 }
 
+.vid-box {}
+
+.vid-div {}
+
+.pee {
+	background-image: url(wup\ of\ water.png);
+	color: rgb(255, 252, 101);
+	height: 3rem;
+}
+
 .bigtitle {
 	animation-name: hueshift;
 	animation-duration: 4s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 	color: hsl(0, 100%, 50%);
+}
+
+.biglink {
+	font-family: cursive;
+	font-size: large;
+	animation-name: hueshift;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	color: hsl(0, 100%, 50%);
+}
+
+hr {
+	width: 20rem;
 }
 
 .maindiv {

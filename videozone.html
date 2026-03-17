@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+
+<head>
+	<script defer>
+		const htmlString = `<div class="vid-div" style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/<insert id here>?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div>`;
+		const searchString = "<insert id here>";
+
+		function insertId(id) {
+			let string = ""
+			let index = htmlString.indexOf(searchString);
+
+			string += htmlString.substr(0, index);
+			string += id
+			string += htmlString.substr(index + searchString.length);
+
+			return string;
+		}
+
+		console.log(insertId("123456789"))
+	</script>
+</head>
+
+<link rel="stylesheet" href="style.css">
+
+<body>
+	<div class="vid-box">
+		<vid yt-id="sIl97TYP_zU">
+	</div>
+</body>
