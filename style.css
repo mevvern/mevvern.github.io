@@ -13,7 +13,7 @@
 .vid-div {}
 
 .pee {
-	background-image: url(wup\ of\ water.png);
+	background-image: url(medias/wup\ of\ water.png);
 	color: rgb(255, 252, 101);
 	height: 3rem;
 }
@@ -36,12 +36,51 @@
 	color: hsl(0, 100%, 50%);
 }
 
-hr {
-	width: 20rem;
-}
-
 .maindiv {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+}
+
+.home {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	color: rgb(171, 69, 255);
+	font-family: fantasy;
+	font-size: xx-large;
+}
+
+
+#buttonzone {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 60rem;
+}
+
+#buttonzone>* {
+	margin: 0.1rem;
+}
+
+a {
+	color: brown;
+}
+
+a:visited {
+	color: coral;
+}
+
+body {
+	background-image: url(/medias/home.png);
+	backdrop-filter: blur(5px);
+	color: white;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	margin: 0px;
+}
+
+hr {
+	width: 20rem;
 }
