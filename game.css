@@ -1,0 +1,77 @@
+#windowTitle {
+	display: flex;
+	flex-direction: row;
+}
+
+#windowTitle>* {
+	margin: 0px;
+}
+
+#enableJs {
+	margin: 0px;
+}
+
+#minimizeButton {
+	background-image: url(/medias/minimize.png);
+}
+
+#maximizeButton {
+	background-image: url(/medias/maximize.png);
+}
+
+#exitButton {
+	background-image: url(/medias/exit.png);
+}
+
+#minimizeButton:active {
+	background-image: url(/medias/minimize_pressed.png);
+}
+
+#maximizeButton:active {
+	background-image: url(/medias/maximize_pressed.png);
+}
+
+#exitButton:active {
+	background-image: url(/medias/exit_pressed.png);
+}
+
+#windowControls {
+	display: flex;
+	flex-direction: row;
+}
+
+#windowControls>* {
+	width: 1.5rem;
+	height: 1.5rem;
+	background-size: 1.5rem;
+	border: none;
+}
+
+#windowControls>*:hover {
+	filter: brightness(0.9);
+}
+
+#gamezone-topbar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 1.5rem;
+	width: 30vw;
+	background-color: gray;
+}
+
+#gamezone {
+	position: absolute;
+	bottom: 2rem;
+	left: 2rem;
+	width: 30vw;
+	height: 30vw;
+	background-color: white;
+	overflow: hidden;
+	z-index: 999;
+	transition: height 0.2s linear;
+}
+
+#gamezone[minimized] {
+	height: 1.5rem;
+}

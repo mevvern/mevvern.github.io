@@ -3,9 +3,9 @@
 <head>
     <title>Mevs internet page</title>
     <script>
+        "use strict"
         // button randomization script     
         // !! i need so many buttons. please show me your buttons. !!
-        "use strict"
         document.addEventListener("DOMContentLoaded", () => {
             const zone = document.querySelector("#buttonzone");
             const oldbuttons = document.querySelectorAll("#buttonzone>*");
@@ -32,18 +32,59 @@
         })
     </script>
 
-    <!-- tile game script -->
-    <script defer>
+    <script>
         "use strict"
+        //tile game script
+        //things to try: make the window resizeable, make the window movable, make the actual fucking game please
+        document.addEventListener("DOMContentLoaded", () => {
+            const gameZone = document.getElementById("gamezone");
+            const minimizeButton = document.getElementById("minimizeButton");
+            const maximizeButton = document.getElementById("maximizeButton");
+            const exitButton = document.getElementById("exitButton");
 
+            function minimize() {
+                gameZone.setAttribute("minimized", "");
+            }
+
+            function maximize() {
+                gameZone.removeAttribute("minimized");
+            }
+
+            function exit() {
+                alert("fuck you");
+            }
+
+            minimizeButton.onclick = minimize;
+            maximizeButton.onclick = maximize;
+            exitButton.onclick = exit;
+
+            //remove "enable javascript" notice
+            document.getElementById("enableJs").remove();
+        })
     </script>
 </head>
 
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="game.css">
 
 <body>
     <div class="extras">
         <a href="home.html" class="home">take me home...</a>
+        <div id="gamezone" minimized>
+            <div id="gamezone-topbar">
+                <div id="windowTitle">
+                    <img src="/medias/gameIcon.png" style="width: 1.5rem; height: 1.5rem;">
+                    <p>Tile Game</p>
+                </div>
+                <p id="enableJs">enable javascript to play</p>
+                <div id="windowControls">
+                    <div title="minimize" class="windowButton" id="minimizeButton"></div>
+                    <div title="maximize" class="windowButton" id="maximizeButton"></div>
+                    <div title="exit" class="windowButton" id="exitButton"></div>
+                </div>
+            </div>
+            <h1 style="color: black;">tilegame under construction. get ready</h1>
+        </div>
     </div>
     <div class="maindiv">
         <h1 class="bigtitle">!!NEW AMAZING UPGRADED SITE!!</h1>
