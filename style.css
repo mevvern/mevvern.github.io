@@ -8,10 +8,6 @@
 	}
 }
 
-.vid-box {}
-
-.vid-div {}
-
 .pee {
 	background-image: url(medias/wup\ of\ water.png);
 	color: rgb(255, 252, 101);
@@ -49,6 +45,16 @@
 	color: rgb(171, 69, 255);
 	font-family: fantasy;
 	font-size: xx-large;
+}
+
+#scavVid {
+	position: absolute;
+	bottom: 10rem;
+	right: 5rem;
+}
+
+#scavVid:hover {
+	cursor: url(https://wyvernscales.com/RWEditor/resources/favicons/favicon-32x32.png), auto;
 }
 
 #buttonzone {
