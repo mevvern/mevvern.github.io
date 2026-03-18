@@ -8,10 +8,14 @@
 	}
 }
 
-.pee {
+#pee {
 	background-image: url(medias/wup\ of\ water.png);
 	color: rgb(255, 252, 101);
 	height: 3rem;
+	position: absolute;
+	left: 50vw;
+	bottom: 1rem;
+
 }
 
 .bigtitle {
