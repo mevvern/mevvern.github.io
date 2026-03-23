@@ -2,6 +2,7 @@
 
 <head>
     <title>Mevs internet page</title>
+
     <script>
         "use strict"
         // button randomization script     
@@ -62,6 +63,150 @@
             document.getElementById("enableJs").remove();
         })
     </script>
+
+    <script defer>
+        "use strict"
+        //gravityball script
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const VEL_LIMIT = 10000
+            const POS_LIMIT = 20000
+            const DAMPING_FAC = 0.5;
+            const ACCELERATION_FAC = 10;
+            const STRETCH_FAC = 0.0003;
+            const BALL_SIZE = 100;
+
+            //vel is in units per sec
+            let velocity = { x: 0, y: 0 };
+            let mousePos = { x: null, y: null };
+            let ballPos = { x: 0, y: 0 };
+            let ballVisible = false;
+
+            let lastTimestamp = null;
+
+            const ballElem = document.getElementById("gravityball");
+            //const posDebug = document.getElementById("mousepostest");
+            const toggleElem = document.getElementById("balltoggle");
+
+            toggleElem.addEventListener("click", () => {
+                toggleBallVis();
+                if (ballVisible) {
+                    toggleElem.innerHTML = "turn off the ball"
+                } else {
+                    toggleElem.innerHTML = "turn on the ball"
+                }
+            })
+
+            document.addEventListener("mousemove", (event) => {
+                //posDebug.innerHTML = `mouse x=${event.clientX}, y=${event.clientY}`
+                mousePos.x = event.clientX;
+                mousePos.y = event.clientY;
+            })
+
+            // --------------------- helping functions ------------------------ //
+
+            function setBallStretch(velocity) {
+                const magnitude = Math.sqrt(velocity.x ** 2 + velocity.y ** 2);
+
+                //hehe you can avoid nasty divides by zeros like this
+                //:3
+                if (magnitude < 0.001) {
+                    ballElem.style.transform = "matrix(1, 0, 0, 1, 0, 0)"
+                    return
+                }
+
+                let sx = (1 + STRETCH_FAC * (magnitude / 30)) ** 10; //stretchX
+                let sy = 1 / sx; //stretchY
+
+                let dx = velocity.x / magnitude; //directonY
+                let dy = velocity.y / magnitude; //directionX
+
+                //compose the matrix
+                let m00 = sx * dx * dx + sy * dy * dy;
+                let m01 = (sx - sy) * dx * dy;
+                let m10 = (sx - sy) * dx * dy;
+                let m11 = sx * dy * dy + sy * dx * dx;
+
+                ballElem.style.transform = `matrix(${m00}, ${m01}, ${m10}, ${m11}, 0, 0)`
+            }
+
+            //ballPos is a tuple... (x, y) <--- like that
+            function setBallPos(ballPos) {
+                ballElem.style.left = `${ballPos.x - (BALL_SIZE / 2)}px`;
+                ballElem.style.top = `${ballPos.y - (BALL_SIZE / 2)}px`;
+            }
+
+            function toggleBallVis() {
+                if (ballVisible) {
+                    ballVisible = false;
+                    ballElem.style.display = "none";
+                } else {
+                    ballVisible = true;
+                    ballElem.style.display = "initial";
+                }
+            }
+
+            // --------------------- real functions ------------------------ //
+
+            function initBallSim() {
+                ballElem.style.width = `${BALL_SIZE}px`;
+                ballElem.style.height = `${BALL_SIZE}px`;
+                toggleBallVis()
+                console.log("initialized gravity ball sim!")
+            }
+
+            function iterateAnim(timestamp) {
+                if (lastTimestamp === null) {
+                    // if this is the first frame of the simulation, just do nothing this loop
+                    // we dont want freak shit happening now do we.
+                    lastTimestamp = timestamp;
+                }
+
+                //only run any of the simulation code if the element is visible
+                if (ballVisible) {
+                    let deltaT = (timestamp - lastTimestamp) / 1000; //divide by 1000 cause timestamps are in milliseconds. i want seconds
+
+                    if (deltaT > 0.5) {
+                        deltaT = 0.5;
+                    }
+
+                    //calculate the next velocity based on the current ball and mouse positions
+                    const distX = mousePos.x - ballPos.x;
+                    const distY = mousePos.y - ballPos.y;
+
+                    const accelX = distX * ACCELERATION_FAC;
+                    const accelY = distY * ACCELERATION_FAC;
+
+                    velocity.x += accelX * deltaT;
+                    velocity.y += accelY * deltaT;
+
+                    velocity.x -= velocity.x * DAMPING_FAC * deltaT;
+                    velocity.y -= velocity.y * DAMPING_FAC * deltaT;
+
+                    //apply the calculated velocity
+                    const deltaX = velocity.x * deltaT;
+                    const deltaY = velocity.y * deltaT;
+
+                    ballPos.x = ballPos.x + deltaX;
+                    ballPos.y = ballPos.y + deltaY;
+
+                    setBallPos(ballPos);
+                    setBallStretch(velocity);
+                    //posDebug.innerHTML = `ball;s position x=${ballPos.x}, y=${ballPos.y}`
+                }
+
+                //stilll set the timestamp and request the next animation frame even if the sim isnt. easiest way to pause lol
+                lastTimestamp = timestamp
+                requestAnimationFrame(iterateAnim)
+            }
+
+            // --------------------- initialization ------------------------ //
+
+            initBallSim()
+            requestAnimationFrame(iterateAnim)
+        })
+
+    </script>
 </head>
 
 <link rel="stylesheet" href="style.css">
@@ -86,6 +231,9 @@
             <h1 style="color: black;">tilegame under construction. get ready</h1>
         </div>
         <video id="scavVid" src="/medias/scavu.mp4" autoplay loop>there should be a video of a scav here</video>
+        <video id="gravityball" src="/medias/gravityball.webm" style="display: none;" autoplay loop>video of a spinning ball that might be called earth</video>
+        <button id="balltoggle">turn off the ball</button>
+        <p id="mousepostest" style="position: absolute; display: none;"></p>
     </div>
     <div class="maindiv">
         <h1 class="bigtitle">!!NEW AMAZING UPGRADED SITE!!</h1>
@@ -122,6 +270,7 @@
             <a href="https://html.spec.whatwg.org/"><img src="medias/htmljunkie.gif" title="i &lt;3 html!!!"></a>
             <img src="medias/saveme.gif" title="be curious! fuck the closed internet!!" style="height: 20px;">
             <a href="https://archive.org/details/pvz-goty-en"><img title="im killin zombies over here!" src="medias/violence.gif"></a>
+            <a href="https://dannarchy.com"><img title="cool tutorialz" src="https://dannarchy.com/images/d_now.gif"></a>
         </div>
         <hr>
         <h2 id="pee">have you ever thought about peeing before? Try it</h2>

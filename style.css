@@ -8,6 +8,19 @@
 	}
 }
 
+#balltoggle {
+	position: absolute;
+	right: 5rem;
+	top: 5rem;
+	height: 5rem;
+}
+
+#gravityball {
+	position: absolute;
+	z-index: 999;
+	display: none;
+}
+
 #pee {
 	background-image: url(medias/wup\ of\ water.png);
 	color: rgb(255, 252, 101);

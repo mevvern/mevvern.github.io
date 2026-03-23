@@ -12,27 +12,27 @@
 }
 
 #minimizeButton {
-	background-image: url(/medias/minimize.png);
+	background-image: url(/medias/tilegame/minimize.png);
 }
 
 #maximizeButton {
-	background-image: url(/medias/maximize.png);
+	background-image: url(/medias/tilegame/maximize.png);
 }
 
 #exitButton {
-	background-image: url(/medias/exit.png);
+	background-image: url(/medias/tilegame/exit.png);
 }
 
 #minimizeButton:active {
-	background-image: url(/medias/minimize_pressed.png);
+	background-image: url(/medias/tilegame/minimize_pressed.png);
 }
 
 #maximizeButton:active {
-	background-image: url(/medias/maximize_pressed.png);
+	background-image: url(/medias/tilegame/maximize_pressed.png);
 }
 
 #exitButton:active {
-	background-image: url(/medias/exit_pressed.png);
+	background-image: url(/medias/tilegame/exit_pressed.png);
 }
 
 #windowControls {
@@ -68,7 +68,7 @@
 	height: 30vw;
 	background-color: white;
 	overflow: hidden;
-	z-index: 999;
+	z-index: 500;
 	transition: height 0.2s linear;
 }
 
