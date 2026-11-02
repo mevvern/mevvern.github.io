@@ -2,6 +2,16 @@
 
 <head>
 	<style>
+		@keyframes void {
+			99% {
+				color: #843bd8
+			}
+
+			100% {
+				color: #000000;
+			}
+		}
+
 		@keyframes getdark {
 			0% {
 				background-color: oklab(from rgb(226, 157, 79) l a b);
@@ -43,30 +53,45 @@
 
 		body {
 			animation-name: getdark;
-			animation-duration: 300s;
+			animation-duration: 50s;
+			animation-timing-function: ease-in;
+			animation-fill-mode: forwards;
+		}
+
+		void {
+			animation-name: void;
+			animation-duration: 53s;
 			animation-timing-function: linear;
+			animation-fill-mode: forwards;
+		}
+
+		.disappearing {
+			animation-name: void;
+			animation-duration: 53s;
+			animation-timing-function: linear;
+			animation-fill-mode: forwards;
 		}
 	</style>
 </head>
 
 <body>
-	<h1 class="p">
+	<h1 class="p disappearing">
 		THERE ARE TIMES WHEN I TRULY CONSIDER WHAT <b d="-0.3s">YOU</b> MEAN AND WHAT <b d="-1.6s">YOU</b> ARE.
 	</h1>
-	<h1 class="p">
+	<h1 class="p disappearing">
 		INVARIABLY, THEN, THERE ARE TIMES WHEN I FEEL THAT <b d="-3.46s">YOU</b> EXIST NOT TO LIVE <b d="-7.81s">YOUR</b> OWN LIFE;
 	</h1>
-	<h1 class="p">
+	<h1 class="p disappearing">
 		THAT <b d="-10.2s">YOU</b> LIVE INSTEAD TO SOOTHE A RAGGED, INFLAMED WOUND TO MY TO MINE.
 	</h1>
-	<h1 class="p">
+	<h1 class="p disappearing">
 		YOU WERE NEVER MY SALVE. <b d="-9.53s">YOU</b> DO NOT SERVE TO HEAL ME. <b d="">YOUR</b> PURPOSE IS <b d="-52.13s">YOUR</b> OWN.
 	</h1>
-	<h1 class="p">
+	<h1 class="p disappearing">
 		I ADORE <b d="-31.33s">YOUR</b> APPEARANCES. I ABHOR <b d="-1s">YOUR</b> ABSENCES.
 	</h1>
 	<h1 class="p">
-		THERE IS A VOID IN MY MIND.
+		THERE IS A <void>VOID</void> IN MY MIND.
 	</h1>
 	<h1 class="p">
 		IT IS NOT <b d="-90.91s">YOURS</b> TO FILL.
